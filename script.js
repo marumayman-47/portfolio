@@ -1,20 +1,21 @@
 
-window.addEventListener('scroll', function () {
+  window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+      navbar.classList.add('scrolled');
     } else {
-        navbar.classList.remove('scrolled');
+      navbar.classList.remove('scrolled');
     }
-});
+  });
 
-document.querySelectorAll('.navbar-nav .nav-link').forEach(function (link) {
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(function (link) {
     link.addEventListener('click', function () {
-        const navbarCollapse = document.querySelector('.navbar-collapse');
-        const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
-        bsCollapse.hide();
+      const offcanvasEl = document.querySelector('#offcanvasNavbar');
+      const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl) ||
+                        new bootstrap.Offcanvas(offcanvasEl);
+      offcanvas.hide();
     });
-});
+  });
 
 // validation
 (() => {

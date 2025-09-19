@@ -22,6 +22,10 @@ body {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.navbar.scrolled {
+    background-color: var(--rose-dark);
+}
+
 .navbar .navbar-brand {
     color: #fff !important;
     font-weight: bold;
@@ -37,29 +41,40 @@ body {
     transform: scale(1.1);
 }
 
-.navbar.scrolled {
-    background-color: var(--rose-dark);
-}
-
+/* Toggler: no border + white icon */
 .navbar-toggler {
     border: none;
     outline: none;
     box-shadow: none;
 }
 
-.navbar-toggler .close-icon {
-    display: none;
-    font-size: 1.8rem;
-    color: #fff;
-    line-height: 1;
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-    display: none;
+/* Offcanvas styles */
+.offcanvas {
+    background-color: var(--rose);
 }
 
-.navbar-toggler[aria-expanded="true"] .close-icon {
-    display: inline-block;
+.offcanvas .nav-link {
+    color: #fff !important;
+}
+
+.offcanvas .nav-link:hover {
+    color: var(--rose-light) !important;
+}
+
+.offcanvas.custom-offcanvas {
+    width: 280px !important;
+    /* desired width on medium+ devices */
+    max-width: 90vw !important;
+    /* keep it responsive on very small screens */
+}
+
+/* Make the built-in close button white */
+.btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
 }
 
 
@@ -123,24 +138,9 @@ button:hover,
 
 
 @media (max-width: 991px) {
-    .navbar-collapse {
-        position: fixed;
-        top: 0;
-        right: -250px;
-        height: 100vh;
-        width: 200px;
-        background-color: var(--rose);
-        padding-top: 4rem;
-        transition: right 0.2s ease;
-    }
-
-    .navbar-collapse.show {
-        right: 0;
-    }
-
     .navbar-nav {
         flex-direction: column;
         align-items: flex-start;
-        padding-left: 1rem;
+        padding-left: 2rem;
     }
 }
