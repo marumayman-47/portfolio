@@ -1,33 +1,78 @@
-/* style.css */
+:root {
+    /* Rose palette */
+    --rose: #e91e63;
+    /* primary */
+    --rose-light: #ff80ab;
+    /* hover/accent */
+    --bg-light: #fef6f9;
+    /* light section background */
+    --text-dark: #212529;
+    /* main text */
+}
+
 body {
+    background-color: #fff;
+    color: var(--text-dark);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-section h2 {
-    font-weight: 700;
+/* Navbar */
+.navbar {
+    background-color: var(--rose);
+    /* use the rose variable from earlier */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-html {
-    scroll-behavior: smooth;
+.navbar .navbar-brand {
+    color: #fff !important;
+    font-weight: bold;
 }
 
+.navbar .nav-link {
+    color: #fff !important;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+    color: var(--rose-light) !important;
+    /* lighter rose on hover */
+    transform: scale(1.1);
+    /* little zoom effect */
+}
+
+.navbar.scrolled {
+  background-color: #d81b60; /* a slightly darker rose when scrolling */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+
+
+/* Hero */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    background: linear-gradient(rgba(233, 30, 99, 0.8), rgba(233, 30, 99, 0.8)),
         url('hero-background.jpg') center/cover no-repeat;
     color: #fff;
 }
 
-.hero h1 span {
-    color: #0d6efd;
-    /* Bootstrap primary */
+/* Buttons */
+.btn-primary {
+    background-color: var(--rose);
+    border-color: var(--rose);
 }
 
-.btn {
-    transition: transform 0.2s, box-shadow 0.2s;
+.btn-primary:hover {
+    background-color: var(--rose-light);
+    border-color: var(--rose-light);
 }
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+/* Section backgrounds */
+section.bg-light {
+    background-color: var(--bg-light) !important;
+}
+
+/* Section titles */
+section h2 {
+    color: var(--rose);
+    font-weight: 700;
 }
