@@ -1,17 +1,17 @@
 :root {
-    /* Rose palette */
     --rose: #e91e63;
-    /* primary */
+    /* primary rose */
+    --rose-dark: #d81b60;
+    /* darker rose for scroll */
     --rose-light: #ff80ab;
-    /* hover/accent */
-    --bg-light: #fef6f9;
-    /* light section background */
-    --text-dark: #212529;
-    /* main text */
+    /* lighter rose for hover */
+    --footer-bg: #e91e63;
+    /* footer color */
+    --footer-text: #fff;
 }
 
 body {
-    background-color: #fff;
+    background-color: #fdf3f8;
     color: var(--text-dark);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -19,7 +19,6 @@ body {
 /* Navbar */
 .navbar {
     background-color: var(--rose);
-    /* use the rose variable from earlier */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -35,14 +34,32 @@ body {
 
 .navbar .nav-link:hover {
     color: var(--rose-light) !important;
-    /* lighter rose on hover */
     transform: scale(1.1);
-    /* little zoom effect */
 }
 
 .navbar.scrolled {
-  background-color: #d81b60; /* a slightly darker rose when scrolling */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    background-color: var(--rose-dark);
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-toggler .close-icon {
+    display: none;
+    font-size: 1.8rem;
+    color: #fff;
+    line-height: 1;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    display: none;
+}
+
+.navbar-toggler[aria-expanded="true"] .close-icon {
+    display: inline-block;
 }
 
 
@@ -51,7 +68,7 @@ body {
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(233, 30, 99, 0.8), rgba(233, 30, 99, 0.8)),
-        url('hero-background.jpg') center/cover no-repeat;
+        url('./assets/imgs/01.png') center/cover no-repeat;
     color: #fff;
 }
 
@@ -75,4 +92,55 @@ section.bg-light {
 section h2 {
     color: var(--rose);
     font-weight: 700;
+}
+
+a,
+button,
+.btn {
+    transition: all 0.3s ease;
+}
+
+
+/* footer theme */
+.footer {
+    background-color: #e91e63;
+    color: #fff;
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.footer p {
+    margin: 0;
+}
+
+footer a i:hover,
+button:hover,
+.btn:hover {
+    color: #fddfeb;
+    transform: scale(1.05);
+    opacity: 0.85;
+}
+
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        height: 100vh;
+        width: 200px;
+        background-color: var(--rose);
+        padding-top: 4rem;
+        transition: right 0.2s ease;
+    }
+
+    .navbar-collapse.show {
+        right: 0;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 1rem;
+    }
 }

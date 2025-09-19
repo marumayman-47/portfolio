@@ -1,10 +1,4 @@
-// script.js
-document.querySelector('form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    alert('Thank you for your message!');
-});
 
-// in script.js
 window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
@@ -13,3 +7,39 @@ window.addEventListener('scroll', function () {
         navbar.classList.remove('scrolled');
     }
 });
+
+document.querySelectorAll('.navbar-nav .nav-link').forEach(function (link) {
+    link.addEventListener('click', function () {
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+        bsCollapse.hide();
+    });
+});
+
+// validation
+(() => {
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('successMsg');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); 
+        if (!form.checkValidity()) {
+            event.stopPropagation();
+            form.classList.add('was-validated');
+            return;
+        }
+
+        form.classList.remove('was-validated');
+        form.reset();
+        successMsg.classList.remove('d-none'); 
+        setTimeout(() => successMsg.classList.add('d-none'), 1000);
+    });
+
+  
+    form.name.addEventListener('input', () => {
+        form.name.value = form.name.value.replace(/[^A-Za-z\s]/g, '');
+    });
+    form.message.addEventListener('input', () => {
+        form.message.value = form.message.value.replace(/[^A-Za-z0-9\s]/g, '');
+    });
+})();
