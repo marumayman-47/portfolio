@@ -1,17 +1,17 @@
 :root {
-    --rose: #e91e63;
+    --rose: #091448;
     /* primary rose */
-    --rose-dark: #d81b60;
+    --rose-dark: #f9f9fa77;
     /* darker rose for scroll */
-    --rose-light: #ff80ab;
+    --rose-light: #7776b3;
     /* lighter rose for hover */
-    --footer-bg: #e91e63;
+    --footer-bg: #091448;
     /* footer color */
     --footer-text: #fff;
 }
 
 body {
-    background-color: #fdf3f8;
+    background-color: #fcfbd3a1;
     color: var(--text-dark);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -24,6 +24,15 @@ body {
 
 .navbar.scrolled {
     background-color: var(--rose-dark);
+}
+
+.navbar.scrolled .navbar-brand,
+.navbar.scrolled .nav-link {
+    color: var(--rose) !important;
+}
+
+.navbar.scrolled .nav-link:hover {
+    color: var(--rose-dark) !important;
 }
 
 .navbar .navbar-brand {
@@ -48,8 +57,14 @@ body {
     box-shadow: none;
 }
 
+/* Default hamburger icon: white */
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* When scrolled: #091448 */
+.navbar.scrolled .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23091448' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 /* Offcanvas styles */
@@ -82,9 +97,8 @@ body {
 /* Hero */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(233, 30, 99, 0.8), rgba(233, 30, 99, 0.8)),
-        url('./assets/imgs/01.png') center/cover no-repeat;
     color: #fff;
+    background: url(/assets/imgs/02.jpg) center/cover no-repeat;
 }
 
 /* Buttons */
@@ -118,7 +132,6 @@ button,
 
 /* footer theme */
 .footer {
-    background-color: #e91e63;
     color: #fff;
     text-align: center;
     padding: 3rem 0;
@@ -132,7 +145,7 @@ footer a i:hover,
 button:hover,
 .btn:hover {
     color: #fddfeb;
-    transform: scale(1.05);
+    transform: scale(1.04);
     opacity: 0.85;
 }
 
