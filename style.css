@@ -98,7 +98,7 @@ body {
 .hero {
     height: 100vh;
     color: #fff;
-    background: url(../assets/imgs/02.jpg) center/cover no-repeat;
+    background: url('../assets/imgs/02.jpg') center/cover no-repeat;
 }
 
 /* Buttons */
